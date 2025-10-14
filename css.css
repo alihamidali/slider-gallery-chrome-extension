@@ -1,0 +1,152 @@
+.quick-view-btn {
+  position: absolute;
+  bottom: 120px;
+  width: 100%;
+  transform: translateX(-50%) translateY(15px);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.4s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.quick-view-btn.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.quick-view-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.qv-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.qv-modal-overlay.show {
+  display: block;
+  opacity: 1;
+}
+
+.qv-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  width: 90%;
+  max-width: 800px;
+  max-height: 80vh;
+  z-index: 10000;
+  display: none;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.qv-modal.show {
+  display: block;
+}
+
+/* Close Button */
+.qv-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 10001;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.qv-close:hover {
+  background: #f0f0f0;
+}
+
+.qv-close::before,
+.qv-close::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 2px;
+  background: #333;
+}
+
+.qv-close::before {
+  transform: rotate(45deg);
+}
+
+.qv-close::after {
+  transform: rotate(-45deg);
+}
+
+.qv-swiper {
+  width: 100%;
+  height: 100%;
+  max-height: 80vh;
+}
+
+.qv-swiper .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+}
+
+.qv-swiper .swiper-slide img {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #333 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #333 !important;
+}
+
+.qv-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
